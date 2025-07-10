@@ -1,7 +1,7 @@
 export interface Jugador {
-  name: string;
-  lastName: string;
-  age: number;
-  position: 'ARQ' | 'DEF' | 'MED' | 'DEL';
+  nombre: string;
+  apellido: string;
+  edad: number;
+  posicion: 'ARQ' | 'DEF' | 'MED' | 'DEL';
 }
 
