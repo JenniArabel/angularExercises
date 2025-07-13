@@ -1,9 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Jugador } from '../../interfaces/jugador.interface';
 
 @Component({
-  selector: 'app-jugador-list',
-  imports: [],
+  selector: 'jugador-list',
   templateUrl: './jugador-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class JugadorListComponent { }
+export class JugadorListComponent {
+  jugadores = input.required<Jugador[]>();
+  listNameJugadores = input.required<string>();
+}

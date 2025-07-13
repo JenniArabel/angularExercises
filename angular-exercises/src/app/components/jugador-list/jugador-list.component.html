@@ -1,1 +1,9 @@
-<p>jugador-list works!</p>,
+<h3> {{ listNameJugadores()}} </h3>
+
+<ul>
+  @for (jugador of jugadores(); track jugador.id; let idx = $index) {
+    <li>
+      {{ idx + 1 }}. {{ jugador.nombre }} {{ jugador.apellido }} - {{jugador.posicion}} {{ jugador.edad }} años
+    </li>
+  }
+</ul>
