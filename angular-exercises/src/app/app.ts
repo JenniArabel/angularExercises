@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-// import { RouterOutlet } from '@angular/router';
+import { JugadoresComponent } from "./pages/jugadores/jugadores.component";
 
 @Component({
   selector: 'app-root',
   // imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  imports: [JugadoresComponent],
+  // imports: []
 })
 export class App {
   protected title = 'angular-exercises';

@@ -1,11 +1,13 @@
-import { Injectable, signal } from '@angular/core';
-import { Jugador } from '../interfaces/jugador.interface';
+import { Component } from '@angular/core';
+import type { Jugador } from '../../interfaces/jugador.interface';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-jugadores',
+  templateUrl: './jugadores.component.html',
 })
-export class EscalonetaService {
-  private jugadoresData: Jugador[] = [
+export class JugadoresComponent {
+  // Array de jugadores, convertido a JSON y tipado con la interfaz Jugador
+  jugadores = signal<Jugador[]>([
     { nombre: "Lionel", apellido: "Messi", edad: 36, posicion: "DEL" },
     { nombre: "Lautaro", apellido: "Martinez", edad: 27, posicion: "DEL" },
     { nombre: "Paulo", apellido: "Dybala", edad: 28, posicion: "DEL" },
@@ -21,7 +23,7 @@ export class EscalonetaService {
     { nombre: "Gonzalo", apellido: "Montiel", edad: 25, posicion: "DEF" },
     { nombre: "Rodrigo", apellido: "De Paul", edad: 27, posicion: "MED" },
     { nombre: "Valentin", apellido: "Barco", edad: 19, posicion: "DEF" }
-  ];
+  ]);
 
-  jugadores = signal<Jugador[]>(this.jugadoresData);
+  
 }

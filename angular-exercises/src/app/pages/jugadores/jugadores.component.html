@@ -1,0 +1,10 @@
+<h1> Lista jugadores </h1>
+
+<ul>
+  @for (jugador of jugadores(); track $index) {
+    <li>
+      {{ jugador.nombre }} - {{ jugador.posicion }}
+      <button (click)="eliminarJugador(jugador.id)">Eliminar</button>
+    </li>
+  }
+</ul>
