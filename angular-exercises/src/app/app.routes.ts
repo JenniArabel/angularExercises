@@ -2,6 +2,7 @@ import { JugadoresEliminarMayorComponent } from './pages/jugadoresEliminarMayor/
 import { Routes } from '@angular/router';
 import { JugadoresComponent } from './pages/jugadores/jugadores.component';
 import { JugadoresFiltroNombreComponent } from './pages/jugadoresFiltroNombre/jugadoresFiltroNombre.component';
+import { JugadoresEdadPromedioComponent } from './pages/jugadoresEdadPromedio/jugadoresEdadPromedio.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
   {
     path: 'jugador-eliminar-mayor',
     component: JugadoresEliminarMayorComponent,
+  },
+  {
+    path: 'jugadores-edad-promedio',
+    component: JugadoresEdadPromedioComponent,
   },
   {
     path: '**',
