@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-jugadores-edad-promedio',
   imports: [],
   templateUrl: './jugadoresEdadPromedio.component.html',
+  styleUrls: ['./jugadoresEdadPromedio.component.css']
 })
 export class JugadoresEdadPromedioComponent {
   jugadores = [
