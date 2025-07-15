@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-jugadores-eliminar-mayor',
   imports: [],
   templateUrl: './jugadoresEliminarMayor.component.html',
+  styleUrls: ['./jugadoresEliminarMayor.component.css']
 })
 export class JugadoresEliminarMayorComponent {
   jugadores = [
