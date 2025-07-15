@@ -1,0 +1,13 @@
+<h2>Buscar jugador por nombre</h2>
+<input
+  type="text"
+  placeholder="Ingrese nombre"
+  (input)="actualizarFiltro($event)"
+/>
+
+<ul>
+  @for (jugador of jugadoresFiltrados; track jugador.nombre) {
+    <li>
+      {{ jugador.nombre }} {{ jugador.apellido }} - Edad: {{ jugador.edad }} - Posición: {{ jugador.posicion }}
+    </li>
+  }

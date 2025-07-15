@@ -1,0 +1,11 @@
+<h2>Eliminar el jugador mayor</h2>
+
+<button (click)="eliminarMayor()"> Eliminar </button>
+
+<ul>
+  @for (jugador of jugadores; track jugador.nombre) {
+    <li>
+      {{ jugador.nombre }} {{ jugador.apellido }} - Edad: {{ jugador.edad }} - Posición: {{ jugador.posicion }}
+    </li>
+  }
+</ul>
