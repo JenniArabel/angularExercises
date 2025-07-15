@@ -1,0 +1,42 @@
+h2{
+  color: #2c3e50;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+p{
+  font-size: 18px;
+  color: #34495e;
+}
+
+input{
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  width: 30%;
+  box-sizing: border-box;
+}
+
+input::placeholder{
+  color: #95a5a6;
+}
+
+input:focus{
+  border-color: #3498db;
+  outline: none;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+li{
+  margin: 5px 0;
+  padding: 10px;
+}
+
+li:hover{
+  background-color: #ecf0f1;
+  cursor: pointer;
+}

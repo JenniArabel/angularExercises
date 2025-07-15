@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-jugadores-filtro-nombre',
   imports: [],
   templateUrl: './jugadoresFiltroNombre.component.html',
+  styleUrls: ['./jugadoresFiltroNombre.component.css']
 })
 export class JugadoresFiltroNombreComponent {
   jugadores = [
@@ -35,7 +36,7 @@ export class JugadoresFiltroNombreComponent {
     return this.jugadores.filter(j =>
       j.nombre.toLowerCase().startsWith(filtro) ||
       j.nombre.toLowerCase().includes(filtro)
-    );  
+    );
   }
 
   actualizarFiltro(event: Event) {
