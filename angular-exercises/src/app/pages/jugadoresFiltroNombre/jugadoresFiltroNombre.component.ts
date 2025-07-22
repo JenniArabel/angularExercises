@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-jugadores-filtro-nombre',
@@ -25,10 +25,12 @@ export class JugadoresFiltroNombreComponent {
     { "nombre": "Valentin", "apellido": "Barco", "edad": 19, "posicion": "DEF" }
   ];
 
-  filtroNombre: string = '';
+  // Signal to hold the filter input value
+  filtroNombre = signal('');
 
-  get jugadoresFiltrados() {
-    const filtro = this.filtroNombre.trim().toLowerCase();
+  // Computed property to filter players based on the input
+  jugadoresFiltrados = computed(() => {
+    const filtro = this.filtroNombre().trim().toLowerCase();
 
     if (!filtro) {
       return this.jugadores;
@@ -37,9 +39,25 @@ export class JugadoresFiltroNombreComponent {
       j.nombre.toLowerCase().startsWith(filtro) ||
       j.nombre.toLowerCase().includes(filtro)
     );
-  }
+    //Agregar apellido
+  });
 
+  // get jugadoresFiltrados() {
+  //   const filtro = this.filtroNombre.trim().toLowerCase();
+
+  //   if (!filtro) {
+  //     return this.jugadores;
+  //   }
+  //   return this.jugadores.filter(j =>
+  //     j.nombre.toLowerCase().startsWith(filtro) ||
+  //     j.nombre.toLowerCase().includes(filtro)
+  //   );
+  // }
+
+
+  // Method to update the filter value from input event
   actualizarFiltro(event: Event) {
-    this.filtroNombre = (event.target as HTMLInputElement).value;
+    const value = (event.target as HTMLInputElement).value;
+    this.filtroNombre.set(value);
   }
 }

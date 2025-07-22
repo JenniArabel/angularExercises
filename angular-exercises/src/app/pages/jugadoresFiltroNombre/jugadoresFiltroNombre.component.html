@@ -9,7 +9,7 @@
 />
 
 <ul>
-  @for (jugador of jugadoresFiltrados; track jugador.nombre) {
+  @for (jugador of jugadoresFiltrados(); track jugador.nombre) {
     <li>
       {{ jugador.nombre }} {{ jugador.apellido }} - Edad: {{ jugador.edad }} - Posición: {{ jugador.posicion }}
     </li>
