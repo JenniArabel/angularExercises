@@ -15,11 +15,16 @@ export class JugadoresEliminarMayorComponent implements OnInit {
 
   ngOnInit(): void {
     // Obtener la lista de jugadores del servicio
-    this.jugadores = this.jugadoresService.getJugadores();
+    // this.jugadores = this.jugadoresService.getJugadores();
+
+    // Nos suscribimos al observable del servicio
+    this.jugadoresService.jugadores$.subscribe(jugadores => {
+      this.jugadores = jugadores;
+    });
   }
 
-  eliminarMayor() {
-    if (this.jugadores.length === 0) {return;}
+  eliminarMayor(): void {
+    /* if (this.jugadores.length === 0) {return;}
 
     // Encontrar el jugador con la mayor edad y eliminarlo
     const mayorEdad = Math.max(...this.jugadores.map(j => j.edad));
@@ -29,5 +34,8 @@ export class JugadoresEliminarMayorComponent implements OnInit {
     if (idx !== -1) {
       this.jugadores.splice(idx, 1);
     }
+    */
+
+    this.jugadoresService.eliminarJugadorMayor();
   }
 }

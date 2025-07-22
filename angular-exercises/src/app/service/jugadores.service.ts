@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import type { Jugador } from '../interfaces/jugador.interface';
 
 @Injectable({
@@ -33,11 +34,24 @@ export class JugadoresService {
     { nombre: 'Valentin', apellido: 'Barco', edad: 19, posicion: 'DEF' },
   ];
 
+  // Observable que mantiene el estado de los jugadores
+  private jugadoresSubject = new BehaviorSubject<Jugador[]>(this.jugadores);
+  jugadores$ = this.jugadoresSubject.asObservable(); //observable publico
+
   // Método para obtener la lista de jugadores
   // Retorna una copia del array para evitar mutaciones externas
   getJugadores(): Jugador[] {
     // Retorna una copia para proteger el array original
-    return [...this.jugadores];
+    return this.jugadoresSubject.value;
+  }
+
+  eliminarJugadorMayor(): void {
+    const jugadores = this.getJugadores();
+    if (jugadores.length === 0) return;
+
+    const mayorEdad = Math.max(...jugadores.map((j) => j.edad));
+    const nuevosJugadores = jugadores.filter((j) => j.edad !== mayorEdad);
+    this.jugadoresSubject.next(nuevosJugadores); // emite los nuevos datos
   }
 }
 /*
