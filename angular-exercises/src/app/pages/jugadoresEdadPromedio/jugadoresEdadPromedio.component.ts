@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JugadoresService } from '../../service/jugadores.service';
 
 @Component({
   selector: 'app-jugadores-edad-promedio',
@@ -7,23 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./jugadoresEdadPromedio.component.css']
 })
 export class JugadoresEdadPromedioComponent {
-  jugadores = [
-    { nombre: "Lionel", apellido: "Messi", edad: 36, posicion: "DEL" },
-    { nombre: "Lautaro", apellido: "Martinez", edad: 27, posicion: "DEL" },
-    { nombre: "Paulo", apellido: "Dybala", edad: 28, posicion: "DEL" },
-    { nombre: "Ángel", apellido: "Di María", edad: 34, posicion: "MED" },
-    { nombre: "Nicolás", apellido: "Otamendi", edad: 37, posicion: "DEF" },
-    { nombre: "Marcos", apellido: "Acuña", edad: 30, posicion: "DEF" },
-    { nombre: "Leandro", apellido: "Paredes", edad: 27, posicion: "MED" },
-    { nombre: "Giovani", apellido: "Lo Celso", edad: 26, posicion: "MED" },
-    { nombre: "Emiliano", apellido: "Martínez", edad: 29, posicion: "ARQ" },
-    { nombre: "Franco", apellido: "Armani", edad: 35, posicion: "ARQ" },
-    { nombre: "Nicolás", apellido: "Tagliafico", edad: 29, posicion: "DEF" },
-    { nombre: "Guido", apellido: "Rodríguez", edad: 27, posicion: "MED" },
-    { nombre: "Gonzalo", apellido: "Montiel", edad: 25, posicion: "DEF" },
-    { nombre: "Rodrigo", apellido: "De Paul", edad: 27, posicion: "MED" },
-    { nombre: "Valentin", apellido: "Barco", edad: 19, posicion: "DEF" }
-  ];
+  jugadores = JugadoresService.jugadoresList();
+  //usar service en los demas componentes
 
   // Método para calcular la edad promedio de los jugadores
   // Se usa reduce para sumar las edades y luego se divide por la cantidad de jugadores
@@ -38,4 +24,6 @@ export class JugadoresEdadPromedioComponent {
     const total = this.jugadores.reduce((acc, j) => acc + j.edad, 0);
     return this.jugadores.length ? Math.round(total / this.jugadores.length) : 0;
   }
+
+  //que cambie cuando borre el jugador mayor
 }
